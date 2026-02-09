@@ -3,6 +3,8 @@
 class Vector
 {
 public:
+    float Length() const;
+
     float x, y;
 };
 
@@ -13,6 +15,15 @@ public:
 
     float x, y;
 };
+
+float Vector::Length() const
+{
+    float length;
+
+    length = std::sqrt(x * x + y * y);
+
+    return length;
+}
 
 Vector operator-(Point a, Point b)
 {
@@ -61,7 +72,11 @@ int main()
 
     v = p - i;
 
+    float length = v.Length();
+
     std::cout << "Result: (" << v.x << ", " << v.y << ")\n";
+
+    std::cout << "Length: " << length << "\n";
 
     
     return 0;
