@@ -4,6 +4,7 @@ class Vector
 {
 public:
     float Length() const;
+    float LengthSqr() const;
 
     float x, y;
 };
@@ -24,6 +25,15 @@ float Vector::Length() const
 
     return length;
 }
+float Vector::LengthSqr() const
+{
+    float length;
+
+    length = (x * x + y * y);
+
+    return length;
+}
+
 
 Vector operator-(Point a, Point b)
 {
@@ -68,15 +78,21 @@ int main()
     i.x = 1;
     i.y = 1;
 
-    Vector v;
+    Point c;
+    c.x = 2;
+    c.y = -1;
 
-    v = p - i;
+    Vector cp;
+    Vector ip;
 
-    float length = v.Length();
+    cp = p - c;
+    ip = p - i;
 
-    std::cout << "Result: (" << v.x << ", " << v.y << ")\n";
+    float length_sqr_cp = cp.LengthSqr();
+    float length_sqr_ip = ip.LengthSqr();
 
-    std::cout << "Length: " << length << "\n";
+    std::cout << "Length squared of CP: " << length_sqr_cp << "\n";
+    std::cout << "Length squared of IP: " << length_sqr_ip << "\n";
 
     
     return 0;
