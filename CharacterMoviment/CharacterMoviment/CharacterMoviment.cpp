@@ -3,7 +3,17 @@
 class Vector
 {
 public:
+    Vector() {}
+    Vector(float X, float Y)
+    {
+        x = X;
+        y = Y;
+    }
     float Length() const;
+    float LengthSqr() const;
+
+    Vector operator*(float s) const;
+    Vector operator/(float s) const;
 
     float x, y;
 };
@@ -24,6 +34,34 @@ float Vector::Length() const
 
     return length;
 }
+
+Vector Vector::operator*(float s) const
+{
+    Vector scaled;
+    scaled.x = x * s;
+    scaled.y = y * s;
+
+    return scaled;
+}
+
+Vector Vector::operator/(float s) const
+{
+    Vector scaled;
+    scaled.x = x / s;
+    scaled.y = y / s;
+
+    return scaled;
+}
+
+float Vector::LengthSqr() const
+{
+    float length;
+
+    length = (x * x + y * y);
+
+    return length;
+}
+
 
 Vector operator-(Point a, Point b)
 {
@@ -60,24 +98,45 @@ int main()
 
     //std::cout << "Result: (" << p2.x << ", " << p2.y << ")\n";
 
-    Point p; // vector (0, 1)
-    p.x = 0;
-    p.y = -1;
+    //Point p; // vector (0, 1)
+    //p.x = 0;
+    //p.y = -1;
 
-    Point i; // vector (1,1)
-    i.x = 1;
-    i.y = 1;
+    //Point i; // vector (1,1)
+    //i.x = 1;
+    //i.y = 1;
 
-    Vector v;
+    //Point c;
+    //c.x = 2;
+    //c.y = -1;
 
-    v = p - i;
+    //Vector cp;
+    //Vector ip;
 
-    float length = v.Length();
+    //cp = p - c;
+    //ip = p - i;
 
-    std::cout << "Result: (" << v.x << ", " << v.y << ")\n";
+    //float length_sqr_cp = cp.LengthSqr();
+    //float length_sqr_ip = ip.LengthSqr();
 
-    std::cout << "Length: " << length << "\n";
+    //std::cout << "Length squared of CP: " << length_sqr_cp << "\n";
+    //std::cout << "Length squared of IP: " << length_sqr_ip << "\n";
 
+    Vector v(3, 4);
+
+    std::cout << "Pac man's initial speed: " << v.Length() << "\n";
+
+    Vector doubled;
+
+    doubled = v * 2; //(6, 8)
+
+    std::cout << "Pac man's doubled speed: " << doubled.Length() << "\n";
+
+    Vector halved;
+
+    halved = v / 2;
+
+    std::cout << "Pac man's halved speed: " << halved.Length() << "\n";
     
     return 0;
 }
