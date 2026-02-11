@@ -15,6 +15,9 @@ public:
     Vector operator*(float s) const;
     Vector operator/(float s) const;
 
+    Vector Normalized() const;
+
+public:
     float x, y;
 };
 
@@ -22,9 +25,24 @@ class Point
 {
 public:
     Point AddVector(Vector v);
+    Point() {}
+    Point(float X, float Y)
+    {
+        x = X;
+        y = Y;
+    }
 
     float x, y;
 };
+
+Vector Vector::Normalized() const
+{
+    Vector normalized;
+
+    normalized = (*this) / Length();
+
+    return normalized;
+}
 
 float Vector::Length() const
 {
@@ -84,7 +102,7 @@ Point Point::AddVector(Vector v)
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //std::cout << "Hello World!\n";
 
     //Point p; // (1,0)
     //p.x = 1;
@@ -122,21 +140,31 @@ int main()
     //std::cout << "Length squared of CP: " << length_sqr_cp << "\n";
     //std::cout << "Length squared of IP: " << length_sqr_ip << "\n";
 
-    Vector v(3, 4);
+    //Vector v(3, 4);
 
-    std::cout << "Pac man's initial speed: " << v.Length() << "\n";
+    //std::cout << "Pac man's initial speed: " << v.Length() << "\n";
 
-    Vector doubled;
+    //Vector doubled;
 
-    doubled = v * 2; //(6, 8)
+    //doubled = v * 2; //(6, 8)
 
-    std::cout << "Pac man's doubled speed: " << doubled.Length() << "\n";
+    //std::cout << "Pac man's doubled speed: " << doubled.Length() << "\n";
 
-    Vector halved;
+    //Vector halved;
 
-    halved = v / 2;
+    //halved = v / 2;
 
-    std::cout << "Pac man's halved speed: " << halved.Length() << "\n";
+    //std::cout << "Pac man's halved speed: " << halved.Length() << "\n";
+
+    Point i(3, 4);
+    Point p(1,2);
+
+    Vector pi = i - p;
+
+    Vector normalized = pi.Normalized();
+
+    std::cout << "Pac man's view vector: (" << normalized.x << ", " << normalized.y << ")" << "\n";
+    std::cout << "Pac man's view vector length: " << normalized.Length() << "\n";
     
     return 0;
 }
