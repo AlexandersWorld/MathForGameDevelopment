@@ -12,6 +12,9 @@ public:
     float Length() const;
     float LengthSqr() const;
 
+    Vector operator+(const Vector& v) const;
+    Vector operator-(const Vector& v) const;
+
     Vector operator*(float s) const;
     Vector operator/(float s) const;
 
@@ -78,6 +81,21 @@ float Vector::LengthSqr() const
     length = (x * x + y * y);
 
     return length;
+}
+
+Vector Vector::operator+(const Vector& v) const
+{
+    Vector r;
+
+    r.x = x + v.x;
+    r.y = y + v.y;
+
+    return r;
+}
+
+Vector Vector::operator-(const Vector& v) const
+{
+    return Vector(x - v.x, y - v.y);
 }
 
 
@@ -156,15 +174,22 @@ int main()
 
     //std::cout << "Pac man's halved speed: " << halved.Length() << "\n";
 
-    Point i(3, 4);
-    Point p(1,2);
+    //Point i(3, 4);
+    //Point p(1,2);
 
-    Vector pi = i - p;
+    //Vector pi = i - p;
 
-    Vector normalized = pi.Normalized();
+    //Vector normalized = pi.Normalized();
 
-    std::cout << "Pac man's view vector: (" << normalized.x << ", " << normalized.y << ")" << "\n";
-    std::cout << "Pac man's view vector length: " << normalized.Length() << "\n";
+    //std::cout << "Pac man's view vector: (" << normalized.x << ", " << normalized.y << ")" << "\n";
+    //std::cout << "Pac man's view vector length: " << normalized.Length() << "\n";
+
+    Vector r(4, 0);
+    Vector d(0, -5);
+
+    Vector v = r + d;
+
+    std::cout << "Pac man's new veolocity: (" << v.x << ", " << v.y << ")\n";
     
     return 0;
 }
