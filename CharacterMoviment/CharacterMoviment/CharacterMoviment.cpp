@@ -19,6 +19,7 @@ public:
     Vector operator/(float s) const;
 
     Vector Normalized() const;
+    float DotProduct(const Vector& a, const Vector& b);
 
 public:
     float x, y;
@@ -45,6 +46,11 @@ Vector Vector::Normalized() const
     normalized = (*this) / Length();
 
     return normalized;
+}
+
+float Vector::DotProduct(const Vector& a, const Vector& b)
+{
+    return a.x * b.x + a.y * b.y;
 }
 
 float Vector::Length() const
@@ -184,12 +190,20 @@ int main()
     //std::cout << "Pac man's view vector: (" << normalized.x << ", " << normalized.y << ")" << "\n";
     //std::cout << "Pac man's view vector length: " << normalized.Length() << "\n";
 
-    Vector r(4, 0);
-    Vector d(0, -5);
+    //Vector r(4, 0);
+    //Vector d(0, -5);
 
-    Vector v = r + d;
+    //Vector v = r + d;
 
-    std::cout << "Pac man's new veolocity: (" << v.x << ", " << v.y << ")\n";
+    //std::cout << "Pac man's new veolocity: (" << v.x << ", " << v.y << ")\n";
+
+    Vector r(0, 5);
+    Vector b(3, -4);
+
+    Vector br;
+
+    if (br.DotProduct(r, b) < -0.5f)
+        std::cout << "This is a backingstabbing" << "\n";
     
     return 0;
 }
