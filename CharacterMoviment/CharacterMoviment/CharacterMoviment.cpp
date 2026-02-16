@@ -88,6 +88,7 @@ float Vector::LengthSqr() const
 
     return length;
 }
+//calculate the lenth of a vector (3,4) length = (3*3 + 4*4) = 9 + 16 = 25
 
 Vector Vector::operator+(const Vector& v) const
 {
