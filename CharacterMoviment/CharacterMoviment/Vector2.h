@@ -4,10 +4,11 @@ class Vector
 {
 public:
     Vector() {}
-    Vector(float X, float Y)
+    Vector(float X, float Y, float Z)
     {
         x = X;
         y = Y;
+        z = Z;
     }
     float Length() const;
     float LengthSqr() const;
@@ -22,7 +23,7 @@ public:
     float DotProduct(const Vector& a, const Vector& b);
 
 public:
-    float x, y;
+    float x, y, z;
 };
 
 class Point
@@ -36,7 +37,7 @@ public:
         y = Y;
     }
 
-    float x, y;
+    float x, y
 };
 
 Vector Vector::Normalized() const

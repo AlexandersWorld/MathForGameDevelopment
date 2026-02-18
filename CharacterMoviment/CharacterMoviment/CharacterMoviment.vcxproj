@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="CharacterMoviment.cpp" />
     <ClCompile Include="JumpingAndGravity.cpp" />
+    <ClCompile Include="SmoothMovement.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2.h" />
