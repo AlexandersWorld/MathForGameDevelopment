@@ -21,6 +21,8 @@ public:
 
     Vector Normalized() const;
     float DotProduct(const Vector& a, const Vector& b);
+    float Dot(const Vector& v) const;
+    Vector Cross(const Vector& v) const;
 
 public:
     float x, y, z;
@@ -61,6 +63,22 @@ float Vector::Length() const
     length = std::sqrt(x * x + y * y);
 
     return length;
+}
+
+float Vector::Dot(const Vector& v) const
+{
+    return x * v.x + y * v.y + z * v.z;
+}
+
+inline Vector Vector::Cross(const Vector& v) const
+{
+    Vector c;
+
+    c.x = y * v.z - z * v.y;
+    c.y = z * v.x - x * v.z;
+    c.z = x * v.y - y * v.x;
+
+    return c;
 }
 
 Vector Vector::operator*(float s) const
@@ -114,7 +132,7 @@ Vector Vector::operator+(const Vector& v) const
 
 Vector Vector::operator-(const Vector& v) const
 {
-    return Vector(x - v.x, y - v.y);
+    return Vector(x - v.x, y - v.y, z - v.z);
 }
 
 

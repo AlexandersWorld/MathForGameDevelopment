@@ -124,6 +124,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CharacterMoviment.cpp" />
+    <ClCompile Include="EAngle.cpp" />
+    <ClCompile Include="EAngle.h" />
     <ClCompile Include="JumpingAndGravity.cpp" />
     <ClCompile Include="SmoothMovement.h" />
   </ItemGroup>

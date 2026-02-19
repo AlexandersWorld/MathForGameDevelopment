@@ -21,6 +21,15 @@
     <ClCompile Include="JumpingAndGravity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SmoothMovement.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EAngle.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EAngle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2.h">
