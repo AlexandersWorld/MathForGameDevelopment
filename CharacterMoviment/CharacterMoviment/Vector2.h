@@ -1,4 +1,7 @@
 #pragma once
+#include "AABB.h"
+
+class AABB;
 
 class Vector
 {
@@ -116,6 +119,16 @@ Point operator+(Point a, const Vector& b)
 
     r.x = a.x + b.x;
     r.y = a.y + b.y;
+
+    return r;
+}
+
+Point operator+(AABB& b)
+{
+    Point r;
+
+    r = r + b.vecMin;
+    r = r + b.vecMax;
 
     return r;
 }
